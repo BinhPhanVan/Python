@@ -17,6 +17,7 @@ def get_list_page(url):
     while get_info(url +"#c=7264&o=8&pi="+ str(i)) != [] : 
         arr.append(url +"#c=7264&o=8&pi="+ str(i))
         i+=1
+        # chỉ lấy data 100 page đầu tiên
         if i==100:
             break
     return arr 
