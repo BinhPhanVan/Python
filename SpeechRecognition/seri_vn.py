@@ -5,22 +5,26 @@ from gtts import gTTS
 def playaudio(audio):
     playsound(audio)
 def convert_to_audio(text):
-    audio = gTTS(text, lang="en")
+    audio = gTTS(text, lang='vi')
     audio.save("textaudio.mp3")
     playaudio("textaudio.mp3")
     os.remove("textaudio.mp3")
 while True:
     r= sr.Recognizer()
     with sr.Microphone() as source:
-        print("say something!")
+        print("Bạn hãy nói gì đó!")
         audio = r.listen(source)
     try:
-        print("You said: "+ r.recognize_google(audio))
-        convert_to_audio(r.recognize_google(audio))
+        text = r.recognize_google(audio,language='vi-VN')
+        if text =="dừng lại":
+            print("Cuộc hội thoại đã dừng lại")
+            break
+        print("Bạn nói : "+ text)
+        convert_to_audio(text)
     except sr.UnknownValueError:
-        print("Google Speech Recognition could not understand audio")
+        print("Vui lòng bạn nói lại.........    ")
     except sr.RequestError as e:
-        print("Could not request results from Google Speech Recognition")
+        print("Không thể nhận diện giọng nói !!!")
     
 
 
