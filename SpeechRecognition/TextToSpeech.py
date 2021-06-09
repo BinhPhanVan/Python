@@ -4,7 +4,7 @@ import os
 from gtts import gTTS
 class TextToSpeech:
     __text=""
-    __file="test"
+    __file="Simsimi"
     def __init__(self, text):
         self.__text=text
     def speech_text(self):
