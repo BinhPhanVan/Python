@@ -16,8 +16,9 @@ class ChatBox:
             'x-api-key':r"e2wqSRg0i7ppJPD8aGVLvD6EIsy6J-BzeXyxPCcf"
         }
         response = requests.request("POST", url, data = payload, headers=headers)
-        response = json.loads(response.text)
-        return ( response["atext"])
+        if(response.status_code=="200"):
+            response = json.loads(response.text)
+            return ( response["atext"])
 def __init__(question):
     ChatBox1 = ChatBox(question)
     return ChatBox1.Chat()

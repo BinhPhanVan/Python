@@ -8,27 +8,42 @@ class SpeechToText:
     __audio = ""
     def __init__(self):
         with sr.Microphone() as source:
+            audio = self.r.listen(source)
+            self.__audio=audio             
+    def voice_to_text(self):
+        try:
+            text = str(self.r.recognize_google(self.__audio,language='vi-VN'))
+            return text
+        except sr.UnknownValueError:
+            print("Google Speech Recognition could not understand audio")
             print('You Pressed Enter to say!')
             while True:  
                 try: 
                     if keyboard.is_pressed('Enter'):
                         print("Please say!")
-                        audio = self.r.listen(source)
-                        self.__audio=audio
+                        break
+                except:
+                    break 
+        except sr.RequestError as e:
+            print("Could not request results from Google Speech Recognition")
+            print('You Pressed Enter to say!')
+            while True:  
+                try: 
+                    if keyboard.is_pressed('Enter'):
+                        print("Please say!")
                         break 
                 except:
                     break 
-            
-    def voice_to_text(self):
-        try:
-            text = self.r.recognize_google(self.__audio,language='vi-VN')
-            return text
-        except sr.UnknownValueError:
-            print("Google Speech Recognition could not understand audio")
-            text = "stop"
-            return text
-        except sr.RequestError as e:
-            print("Could not request results from Google Speech Recognition")
-def __init__():
-    SpeechToText1= SpeechToText()
-    return SpeechToText1.voice_to_text()
+        except sr.WaitTimeoutError:
+            print("Waiting time too long")
+            print('You Pressed Enter to say!')
+            while True:  
+                try: 
+                    if keyboard.is_pressed('Enter'):
+                        print("Please say!")
+                        break 
+                except:
+                    break 
+# def __init__():
+    # SpeechToText1 = SpeechToText()
+    # return SpeechToText.voice_to_text()
