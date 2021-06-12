@@ -16,6 +16,15 @@ class ChatBox_unlimited:
         r = requests.get(url+url_question)
         if r.status_code==200:
             return r.json()["success"]
+        if r.status_code==400:
+            print("The server refused to provide the requested resource")
+            return "None"
+        if r.status_code==404:
+            print("NOT FOUND ! The requested resource could not be found but may be available in the future")
+            return "None"
+        if r.status_code==403:
+            print("You don't have permission to access / on this server.")
+            return "None"
     def ChatBox_with_api(self):
         while True:
             print("Please say!")

@@ -8,6 +8,7 @@ class SpeechToText:
     __audio = ""
     def __init__(self):
         with sr.Microphone() as source:
+            self.r.adjust_for_ambient_noise(source)
             audio = self.r.listen(source)
             self.__audio=audio             
     def voice_to_text(self):
@@ -20,7 +21,6 @@ class SpeechToText:
             while True:  
                 try: 
                     if keyboard.is_pressed('Enter'):
-                        print("Please say!")
                         break
                 except:
                     break 
@@ -30,7 +30,6 @@ class SpeechToText:
             while True:  
                 try: 
                     if keyboard.is_pressed('Enter'):
-                        print("Please say!")
                         break 
                 except:
                     break 
@@ -40,10 +39,6 @@ class SpeechToText:
             while True:  
                 try: 
                     if keyboard.is_pressed('Enter'):
-                        print("Please say!")
                         break 
                 except:
                     break 
-# def __init__():
-    # SpeechToText1 = SpeechToText()
-    # return SpeechToText.voice_to_text()

@@ -12,6 +12,3 @@ class TextToSpeech:
         audio.save(self.__file+ ".mp3")
         playsound(self.__file+ ".mp3")
         os.remove(self.__file+ ".mp3")
-# def __init__(text):
-#     TextToSpeech1= TextToSpeech(text)
-#     TextToSpeech1.speech_text()
