@@ -13,9 +13,9 @@ students = {
 }
 print(students)
 #đọc dữ liệu file json
-with open("students.json", "w") as f: # w= db
-    json.dump(students, f, indent=4)
-with open("students.json", "r") as f: # w= db
+with open("students.json", "w",encoding='utf-8') as f: # w= db
+    json.dump(students, f, indent=4,ensure_ascii=False)
+with open("students.json", "r",encoding='utf-8') as f: # w= db
     data= json.load(f)
-print(data)
+#print(data)
 #json handle in python
