@@ -5,7 +5,7 @@ Recognize license plate number and get its values
 ## Install
 1. Clone project:
 ```bash
-$ git clone https://github.com/BinhPhanVan/Python/licensePlateRecognition
+$ git clone https://github.com/BinhPhanVan/Python
 ```
 2. Install environment for project: 
 ```bash
