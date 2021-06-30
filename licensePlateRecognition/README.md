@@ -1,7 +1,7 @@
 ## Introduce
 Recognize license plate number and get its values
 ## Step by step implementation:
-    recognize license plate -> separate license plate from image -> Separate value -> Save
+    Recognize license plate -> Separate license plate from image -> Separate value -> Save
 ## Install
 1. Clone project:
 ```bash
