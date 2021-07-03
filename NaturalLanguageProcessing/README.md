@@ -15,7 +15,13 @@
 ```
     pip install -r requirements.txt
 ```
-4. Run project
+4. Download dataSet
+```
+    1. [Link access](https://github.com/duyvuleo/VNTC/tree/master/Data/10Topics/Ver1.1)
+    2. Download: Train_Full.rar
+    3. Unzip and save the folder to dataSet(in project) with name Train_Full
+```
+5. Run project
 ```
     python main.py
 ```
