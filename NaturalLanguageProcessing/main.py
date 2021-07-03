@@ -10,7 +10,7 @@ csv_path = "./dataSet/exportCSV"
 
 
 
-def Read_file(dir):
+def read_file(dir):
     lable = dir.split("/")[-1]
     lable = "_".join(lable.lower().split())
     data=[]
@@ -22,7 +22,7 @@ def Read_file(dir):
                 data.append(text.decode("utf16").strip())
     return lable, data
 
-def edit_fileText(str):
+def split_sentence(str):
     arr = str.split('.')
     return arr
 
@@ -71,7 +71,7 @@ def check_sentences(sentences, word):
 
 def computeIDF(text):
     idfDict = {}
-    list_sentences = edit_fileText(text)
+    list_sentences = split_sentence(text)
     dict_words, total_words = create_dict(text.replace(".", " "))
     total_sentences = 0
     idfDict = dict.fromkeys(dict_words, 0)
@@ -110,12 +110,12 @@ if __name__=='__main__':
     folders = os.listdir(raw_dir)
     for folder in folders:
         create_folder(csv_path +"/"+folder)
-        label, data = Read_file(raw_dir +"/"+folder)
+        label, data = read_file(raw_dir +"/"+folder)
         j=0
         for text in data:
             j= j+1
             list_sentences = create_dict(text)
-            arr = edit_fileText(text)
+            arr = split_sentence(text)
             total_sentences = 0
             list_tfidfs = []
             for i in arr:
